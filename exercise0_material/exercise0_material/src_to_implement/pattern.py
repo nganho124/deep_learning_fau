@@ -49,4 +49,19 @@ class Spectrum:
         self.resolution = resolution
         
     def draw(self):
-        return self.copy()
+        x = np.linspace(0, 1, self.resolution)
+        y = np.linspace(0, 1, self.resolution)
+        X, Y = np.meshgrid(x, y)
+        R = X
+        G = Y
+        B = 1 - X
+        
+        imp = np.dstack((R, G, B))
+        self.output = np.clip(imp, 0, 1)
+        
+        return self.output.copy()
+    
+    def show(self):
+        plt.imshow(self.output)
+        plt.axis('off')
+        plt.show()
