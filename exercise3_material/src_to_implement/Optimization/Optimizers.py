@@ -18,6 +18,7 @@ class Sgd(Optimizer):
         if self.regularizer is not None:
 
             weight_tensor = weight_tensor - self.learning_rate * self.regularizer.calculate_gradient(weight_tensor)
+        
         return weight_tensor - self.learning_rate * gradient_tensor
     
 class SgdWithMomentum(Optimizer):

@@ -11,7 +11,8 @@ class NeuralNetwork:
         self.layers = []
         self.data_layer = None
         self.loss_layer = None
-        self._phase = False  # False = training, True = testing
+        # Phase setting: False = training, True = testing
+        self._phase = False  
 
     @property
     def phase(self):
